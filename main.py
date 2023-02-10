@@ -1,41 +1,22 @@
-# Pygame шаблон - скелет для нового проекта Pygame
 import pygame
-import random
+import sys
+from player import Player
 
-WIDTH = 1200
-HEIGHT = 800
-FPS = 30
 
-# Задаем цвета
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
+def run():
+    pygame.init()
+    screen = pygame.display.set_mode((1200, 800))
+    pygame.display.set_caption('Стрелялка')
+    bg_color = (0, 0, 0)
+    player = Player(screen)
 
-# Создаем игру и окно
-pygame.init()
-pygame.mixer.init()
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption("My Game")
-clock = pygame.time.Clock()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT
+            sys.exit()
 
-# Цикл игры
+        screen.fill(bg_color)
+        pygame.display.flip()
 
-while running:
-    # Держим цикл на правильной скорости
-    clock.tick(FPS)
-    # Ввод процесса (события)
-    for event in pygame.event.get():
-        # check for closing window
-        if event.type == pygame.QUIT:
-            running = False
 
-    # Обновление
-
-    # Рендеринг
-    screen.fill(BLACK)
-    # После отрисовки всего, переворачиваем экран
-    pygame.display.flip()
-
-pygame.quit()
+run()
